@@ -1,0 +1,13 @@
+python_sources(
+    name="libprojectb",
+    sources=["**/*.py"],
+)
+
+pex_binary(
+    name="projectb",
+    entry_point="projectb.main",
+    dependencies=[":libprojectb"],
+    output_path="backend/projectb.pex",
+)
+
+docker_image(name="projectb-container", dependencies=[":projectb"])

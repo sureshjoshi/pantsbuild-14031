@@ -1,0 +1,21 @@
+[GLOBAL]
+pants_version = "2.9.0rc1"
+pantsd = true 
+pants_ignore_use_gitignore = false
+backend_packages = [
+    "pants.backend.experimental.docker",
+    "pants.backend.python",
+]
+build_patterns = ["BUILD.pants"]
+
+[source]
+# The Python source root is the repo root. See https://www.pantsbuild.org/docs/source-roots.
+#root_patterns = ["/"]
+marker_filenames = ["BUILD.pants"]
+
+[python]
+interpreter_constraints = [">=3.9"]
+#requirement_constraints = "requirements.constraints.txt"
+
+[anonymous-telemetry]
+enabled = false

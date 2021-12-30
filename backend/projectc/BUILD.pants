@@ -1,0 +1,12 @@
+python_sources(
+    name="libprojectc",
+    sources=["**/*.py"],
+)
+
+pex_binary(
+    name="projectc",
+    entry_point="projectc.main",
+    dependencies=[":libprojectc"],
+)
+
+docker_image(name="projectc-container", dependencies=[":projectc"])
